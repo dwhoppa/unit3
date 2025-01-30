@@ -72,5 +72,6 @@
 ## proof of work
 <img width="809" alt="Screenshot 2025-01-31 at 8 13 17" src="https://github.com/user-attachments/assets/e52af54c-13a4-49f3-8702-740b480ab3ad" />
 <img width="807" alt="Screenshot 2025-01-31 at 8 13 39" src="https://github.com/user-attachments/assets/53194304-f0bc-4c82-9cdb-e131ad4da1ea"/>
-![image](https://github.com/user-attachments/assets/756c94d5-1507-4ffa-bab2-b0f6a41b9188)
+<img width="1440" alt="Screenshot 2025-01-31 at 8 16 15" src="https://github.com/user-attachments/assets/2d3eee0a-df70-4cd9-a9ec-5dfb71e3fc42" />
+
 
