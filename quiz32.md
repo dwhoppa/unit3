@@ -3,20 +3,34 @@
 
 
 ## paper solution
+![photo_5249020691293006768_y](https://github.com/user-attachments/assets/eb8346a0-f1e0-4323-9a3d-84690df059f8)
 
 
-## flow diagram
-<img width="462" alt="Screenshot 2024-09-16 at 23 17 52" src="https://github.com/user-attachments/assets/e4173075-eadd-474c-92a2-6ddad355356c">
+## UML diagram
+![image](https://github.com/user-attachments/assets/f280b2ec-7a73-470b-b3e5-3ade1d477ff6)
 
 
 ## code
-            word=input('Enter a word:')
-            if  len(word)>2:
-                middle_count = len(word) - 2
-                result = f"{word[0]}{middle_count}{word[-1]}"
-            else:
-                result = word
-            print(f"{word} -> {result}")
+            class HumanResources:
+                def __init__(self, name:str, email:str, nationality:str, occupation:str):
+                    self.name = name
+                    self.email = email
+                    self.nationality = nationality
+                    self.occupation = occupation
+            
+                def get_email(self):
+                    return self.email
+            
+                def set_nationality(self, nationality: str):
+                    self.nationality = nationality
+            
+                def set_email(self, email: str):
+                    self.email = email
+            
+                def greet(self) -> str:
+                    return f"Hello, my name is {self.name} and I work as a {self.occupation}. My contact information is email: {self.email}"
+
 
 ## proof of work
-<img width="1440" alt="Screenshot 2024-09-12 at 2 02 24" src="https://github.com/user-attachments/assets/13350684-c680-463c-95d9-b81bfe24db69">
+![image](https://github.com/user-attachments/assets/2f6d7906-6e6d-4337-bf11-6155d6c40e7d)
+
