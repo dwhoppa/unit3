@@ -60,5 +60,6 @@
 
 ## proof of work
 ![image](https://github.com/user-attachments/assets/a0f100b6-baa0-4a18-98a6-65e43eaa1015)
-![image](https://github.com/user-attachments/assets/284213bd-8843-41bc-991d-521c3e2d6ccc)
+![image](https://github.com/user-attachments/assets/e34f2f9b-f929-4bdd-abc8-75b7d36a3d30)
+
 
