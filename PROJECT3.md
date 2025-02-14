@@ -1,10 +1,11 @@
-![image](https://github.com/user-attachments/assets/530e6f6c-c9f4-47fc-8815-2c9c5fb86973)# Unit 3: Moonlight bublles
+# Unit 3: Moonlight bublles
 
 ## Criteria A: Planning
 
 ## Problem definition
 
 The client, A.N., is the owner of Moonlight Bubbles, a popular Taiwanese drink shop in Japan. The shop, known for its boba milk tea, lemon black tea with jelly, and passionfruit tea with nata de coco, has gained a strong reputation. However, its rural location near Nagano, with the main factory in Suwa, makes it difficult for customers in major cities like Tokyo, Osaka, and Kyoto to access the drinks. Currently, there is no efficient way for customers outside the local area to place orders. Due to high demand, many customers are interested in bulk orders (over 10 cups), but the lack of a structured ordering system limits accessibility and sales growth. Without a dedicated platform, customers must visit the physical store or rely on indirect ordering methods, leading to inconvenience, lost sales opportunities, and limited market expansion. 
+
 ![giphy](https://github.com/user-attachments/assets/c5bbc0d3-5584-4584-ae2c-239722b97d51)
 
 
