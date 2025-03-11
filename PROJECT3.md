@@ -24,22 +24,22 @@ For the development of the ordering system, I decided to use a GUI (Graphical Us
 
 ## Success Criteria
 
-1. User Authentication System
+1. User Authentication System.
   The application includes a signup and login system that allows shop staff to securely access the system using a username and password. 
   (Prevents unauthorized access)
-2. Bulk Order Management System
+2. Bulk Order Management System.
   The application allows users to place bulk orders (minimum 10 drinks) by selecting a drink and specifying the quantity. (Simplifies the - 
   ordering process for customers ordering in large quantities)
-3. Drink Customization Feature
+3. Drink Customization Feature.
   Customers can customize their drinks by choosing sweetness levels and ice levels before adding them to their order. (Enhances customer 
   experience by allowing personalization)
-4. Cart Storage and Display
+4. Cart Storage and Display.
   The cart stores selected items and displays them in a structured list, showing drink name, customizations, quantity, and total price. 
   (Provides a clear overview of the order before checkout)
-5. Visual Display of Total Drinks
+5. Visual Display of Total Drinks.
   The application displays the total number of drinks in a clear and visible section of the cart. (Provides an easy way for users to review 
   their order)
-6. User-Friendly Interface
+6. User-Friendly Interface.
   The application features a clean and easy-to-navigate design with a blue-themed, soft color palette. (Ensures a smooth and enjoyable user 
   experience) 
 
@@ -51,5 +51,17 @@ For the development of the ordering system, I decided to use a GUI (Graphical Us
 The ER diagram for Moonlight Bubbles includes four main tables: users, orders, order_items, and drinks. Primary key of each table is shown with an underline. A one-to-many relationship exists between users and orders, as each user can place multiple orders. The orders table links to order_items in a one-to-many relationship since each order can contain multiple drinks. The order_items table records drink details and connects to the drinks table in a many-to-one relationship, as multiple orders can include the same drink. This structure ensures efficient order tracking and management.
 
 ## UML Diagram:
+<img width="556" alt="Screenshot 2025-03-12 at 8 10 03" src="https://github.com/user-attachments/assets/ef4e8ca2-3158-46e1-9d4f-139a6c498310" />
+
+The UML diagram of the Moonlight Bubbles GUI application consists of four main classes: MoonlightBubblesApp, LoginScreen, SignupScreen, MenuScreen, and CartScreen. The MoonlightBubblesApp class inherits from App and serves as the main application controller. The screen classes (LoginScreen, SignupScreen, MenuScreen, and CartScreen) inherit from Screen and manage different user interfaces. The MenuScreen class handles drink customization and manages the global cart list, which is accessed by CartScreen to display order details. Each screen interacts with the Kivy .kv file for UI elements and receives user input dynamically.
+
+## Wireframe:
+<img width="637" alt="Screenshot 2025-03-12 at 8 11 34" src="https://github.com/user-attachments/assets/d26ff22b-83de-44e5-8cec-de0e7a2b3833" />
+
+This is the wireframe of the GUI application. The screen flow follows the arrows in the figure.
+
+
+
+
 
 
