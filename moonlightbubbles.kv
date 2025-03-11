@@ -1,0 +1,269 @@
+<LoginScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Moonlight Bubbles Login'
+            font_size: 45
+            color: 0.117, 0.565, 1, 1
+            size_hint_y: None
+            height: 50
+
+        TextInput:
+            id: username
+            hint_text: 'Username'
+            multiline: False
+            background_color: 0, 0, 0, 0
+            foreground_color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 40
+            canvas.after:
+                Color:
+                    rgba: input_line_color
+                Line:
+                    points: self.x, self.y, self.x + self.width, self.y
+                    width: 1
+
+        TextInput:
+            id: password
+            hint_text: 'Password'
+            password: True
+            multiline: False
+            background_color: 0, 0, 0, 0
+            foreground_color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 40
+            canvas.after:
+                Color:
+                    rgba: input_line_color
+                Line:
+                    points: self.x, self.y, self.x + self.width, self.y
+                    width: 1
+
+        Button:
+            text: 'Login'
+            background_normal: ''
+            background_color: 0.529, 0.808, 0.980, 1
+            size_hint_y: None
+            height: 50
+            on_press: root.login()
+
+        Button:
+            text: 'Sign Up'
+            background_normal: ''
+            background_color: 0.529, 0.808, 0.980, 1
+            size_hint_y: None
+            height: 50
+            on_press: root.manager.current = 'signup'
+
+<SignupScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Moonlight Bubbles Sign Up'
+            font_size: 28
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 50
+
+        TextInput:
+            id: username
+            hint_text: 'Username'
+            multiline: False
+            background_color: 0, 0, 0, 0
+            foreground_color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 40
+            canvas.after:
+                Color:
+                    rgba: input_line_color
+                Line:
+                    points: self.x, self.y, self.x + self.width, self.y
+                    width: 1
+
+        TextInput:
+            id: password
+            hint_text: 'Password'
+            password: True
+            multiline: False
+            background_color: 0, 0, 0, 0
+            foreground_color: 0, 0, 0, 1
+            size_hint_y: None
+            height: 40
+            canvas.after:
+                Color:
+                    rgba: input_line_color
+                Line:
+                    points: self.x, self.y, self.x + self.width, self.y
+                    width: 1
+
+        Button:
+            text: 'Sign Up'
+            background_normal: ''
+            background_color: 0.529, 0.808, 0.980, 1
+            size_hint_y: None
+            height: 50
+            on_press: root.signup()
+
+        Button:
+            text: 'Back to Login'
+            background_normal: ''
+            background_color: 0.529, 0.808, 0.980, 1
+            size_hint_y: None
+            height: 50
+            on_press: root.manager.current = 'login'
+
+<MenuScreen>:
+    GridLayout:
+        cols: 1
+        rows: 3
+        spacing: 10
+        padding: 10
+        size_hint: 1, 1
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        GridLayout:
+            cols: 2
+            rows: 2
+            size_hint: 1, None
+            height: self.parent.height * 0.94
+            padding: 10
+            spacing: 10
+
+            Button:
+                background_normal: ''
+                background_color: (0.529, 0.808, 0.980, 1)
+                on_press: root.show_drink_options('Classic Milk Tea')
+                size_hint: 1, 1
+                Image:
+                    source: 'classic_milk_tea1.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos: self.parent.pos
+                    size: self.parent.size
+
+            Button:
+                background_normal: ''
+                background_color: (0.529, 0.808, 0.980, 1)
+                on_press: root.show_drink_options('Matcha Milk Tea')
+                size_hint: 1, 1
+                Image:
+                    source: 'matcha_milk_tea.png'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos: self.parent.pos
+                    size: self.parent.size
+
+            Button:
+                background_normal: ''
+                background_color: (0.529, 0.808, 0.980, 1)
+                on_press: root.show_drink_options('Mango Green Tea')
+                size_hint: 1, 1
+                Image:
+                    source: 'mango_green_tea.png'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos: self.parent.pos
+                    size: self.parent.size
+
+            Button:
+                background_normal: ''
+                background_color: (0.529, 0.808, 0.980, 1)
+                on_press: root.show_drink_options('Lemon Black Tea')
+                size_hint: 1, 1
+                Image:
+                    source: 'lemon_black_tea.png'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos: self.parent.pos
+                    size: self.parent.size
+
+        Button:
+            text: "Go to Cart"
+            size_hint_y: None
+            size_hint_x: 1
+            height: 50
+            on_press: root.go_to_cart()
+            background_normal: ''
+            background_color: 0.529, 0.808, 0.980, 1
+
+<CartScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Minimum 10 drinks required"
+            font_size: 22
+            color: (0, 0, 0, 1)
+            size_hint_y: None
+            height: 40
+
+        ScrollView:
+            RecycleView:
+                id: cart_items
+                viewclass: 'Label'
+                RecycleBoxLayout:
+                    default_size: None, 40
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+                    orientation: 'vertical'
+
+        Label:
+            id: final_price
+            text: "Final Price: 0¥"
+            font_size: 24
+            bold: True
+            color: (0, 0, 0, 1)
+            size_hint_y: None
+            height: 50
+
+        Button:
+            text: 'Checkout'
+            size_hint_y: None
+            height: 50
+            background_normal: ''
+            background_color: 0.529, 0.808, 0.980, 1
+            on_press: root.checkout()
+
+        Button:
+            text: 'Back to Menu'
+            size_hint_y: None
+            height: 50
+            background_normal: ''
+            background_color: 0.529, 0.808, 0.980, 1
+            on_press: root.back_to_menu()
