@@ -1,3 +1,4 @@
+
 # Unit 3: Moonlight bublles
 
 ## Criteria A: Planning
@@ -96,6 +97,108 @@ This is the wireframe of the GUI application. The screen flow follows the arrows
 | UI Element Display             | UI/UX Test     | Navigate through the app to ensure that all UI elements (e.g., buttons, labels, input fields) are properly displayed. | All UI elements are visible, appropriately sized, and interactive on different screen sizes. |
 | Database Operations (Signup/Login) | Database Test | Verify that user data is correctly added and retrieved from the SQLite database during signup and login.             | When signing up, the new user data is stored in the database. During login, credentials are validated against the database. |
 | Menu Layout and Drink Buttons  | UI/UX Test     | Verify that all drink buttons in the Menu screen are visible and properly positioned.                                | Drink buttons are displayed with the appropriate images and the grid layout is responsive. |
+
+## Criteria A: Developement
+
+**Success Criterion: The application should allow users to securely access the system using a username and password.**
+
+**Code Implementation: The authentication system typically consists of user login and signup mechanisms that ensure only authorized users can access the system.**
+
+**Example Code:
+File: bubble_tea.py**
+
+```.C++
+def init_db():
+   conn = sqlite3.connect('moonlight_bubbles.db')
+   cursor = conn.cursor()
+   cursor.execute('''
+       CREATE TABLE IF NOT EXISTS users (
+           id INTEGER PRIMARY KEY AUTOINCREMENT,
+           username TEXT UNIQUE NOT NULL,
+           password TEXT NOT NULL
+       )
+   ''')
+   conn.commit()
+   conn.close()
+
+
+init_db()
+
+
+cart = []
+
+
+class LoginScreen(Screen):
+   def login(self):
+       username = self.ids.username.text
+       password = self.ids.password.text
+
+
+       conn = sqlite3.connect('moonlight_bubbles.db')
+       cursor = conn.cursor()
+       cursor.execute('SELECT * FROM users WHERE username=?', (username,))
+       user = cursor.fetchone()
+       conn.close()
+
+
+       if user and self.check_password(password, user[2]):
+           self.manager.current = 'menu'
+       else:
+           self.show_popup('Error', 'Invalid username or password.')
+
+
+   def check_password(self, input_password, stored_password):
+       return hashlib.sha256(input_password.encode()).hexdigest() == stored_password
+
+
+   def show_popup(self, title, message):
+       popup = Popup(title=title, size_hint=(0.8, 0.4))
+       popup.content = Label(text=message)
+       popup.open()
+
+
+class SignupScreen(Screen):
+   def signup(self):
+       username = self.ids.username.text
+       password = self.ids.password.text
+
+
+       hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+
+       conn = sqlite3.connect('moonlight_bubbles.db')
+       cursor = conn.cursor()
+       try:
+           cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, hashed_password))
+           conn.commit()
+           self.show_popup('Success', 'Account created successfully!')
+           self.manager.current = 'login'
+       except sqlite3.IntegrityError:
+           self.show_popup('Error', 'Username already exists.')
+       finally:
+           conn.close()
+
+
+   def show_popup(self, title, message):
+       popup = Popup(title=title, size_hint=(0.8, 0.4))
+       popup.content = Label(text=message)
+       popup.open()
+
+```
+**Code Partial Overview: In the first line of the code, we must include the DHT.h library, in this case we will be using the Adafruit DHT Sensor Library. This library is essential for the program as it makes the arduino to identify the and send the commands to the DHT sensors connected to it. In the lines 3 and 4, we defined the pin the sensor is connected to and the type of sensor it is being used in this case scenario. The sensors being used for our project are the DHT11 type, and they are connected to pin 2. The pin and sensor can be seen in the fig.2 located in the Criteria B. On the line 7, the sensor's identity is created so later on the sensor can be called on other programs. Finally, on the line 8, the variable "startTime" is declared and assigned to the type Unsigned long, which permits the variable to store a large amount of non-negative integer values. The word static ensures that the variable retainsits value between function calls. This last line is used to store the timestamp of the data collect, to be exact the start of the collection.**
+
+```.C++
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) delay(10); // Wait for Serial monitor to be ready
+  // Serial.println("DHTxx start!");
+
+  dht.begin();
+  startTime = millis();
+}
+```
+
+**Code Partial Overview: Next, in this section
 
 
 
