@@ -13,10 +13,10 @@ The client, A.N., is the owner of Moonlight Bubbles, a popular Taiwanese drink s
 
 I propose a solution for the problem by developing an application for Moonlight Bubbles, a store that aims to provide a bulk ordering platform, allowing customers in Tokyo, Osaka, and Kyoto to place large orders for delivery. The platform will feature a blue-themed, soft color design to match the brand’s aesthetic and provide a simple, user-friendly ordering process:
 Drink Selection – Customers can choose from the three available drinks (boba milk tea, lemon black tea with jelly, passionfruit tea with nata de coco).
-Customization Options – Users can adjust sweetness levels and ice levels to their preferences.
-Bulk Ordering – Orders must be at least 10 cups, ensuring efficiency in delivery logistics.
-Cart & Checkout System – Customers can add items to their cart and complete their purchase seamlessly.
-Home Screen Navigation – After placing an order, users can return to the home screen for additional transactions.
+ - Customization Options – Users can adjust sweetness levels and ice levels to their preferences.
+ - Bulk Ordering – Orders must be at least 10 cups, ensuring efficiency in delivery logistics.
+ - Cart & Checkout System – Customers can add items to their cart and complete their purchase seamlessly.
+ - Home Screen Navigation – After placing an order, users can return to the home screen for additional transactions.
 
 ## Design Statement
 
