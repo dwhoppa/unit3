@@ -18,16 +18,37 @@ Drink Selection – Customers can choose from the four available drinks (classic
  - Cart & Checkout System – Customers can add items to their cart and complete their purchase seamlessly.
  - Home Screen Navigation – After placing an order, users can return to the home screen for additional transactions.
 
-## Design Statement
+## Tools of my solution
 
-Our team is developing a program using Arduino and DHT_11 sensors to monitor humidity and temperature required for the 
-growing cabbage in greenhouses. The data will be uploaded to a real-time server within 48 hours and accessed via a secure login. This reliable, proven system will be ready within three weeks and will meet our client's needs (done using Pycharm)
+For the development of the ordering system, I decided to use a GUI (Graphical User Interface) application to provide an intuitive and user-friendly experience for customers. Unlike web-based solutions, a desktop GUI application does not require an internet connection, ensuring smooth operation even in remote areas. Python was chosen as the programming language due to its flexibility and extensive libraries, which allow for seamless integration of the user interface, backend processes, and database management. For storing data, I opted for SQLite, a lightweight and reliable relational database management system. SQLite enables secure local storage without the need for cloud-based services, reducing security risks and ensuring fast data access. This combination of tools makes the application efficient, secure, and scalable for future improvements
 
 ## Success Criteria
 
-[^1]: Industries, Adafruit. “DHT11 Basic Temperature-Humidity Sensor + Extras.” Adafruit Industries Blog RSS, https://www.adafruit.com/product/386. 
-[^2]: Nelson, Carter. “Modern Replacements for DHT11 and dht22 Sensors.” Adafruit Learning System, https://learn.adafruit.com/modern-replacements-for-dht11-dht22-sensors/what-are-better-alternatives.   
-[^3]:“How to Connect dht11 Sensor with Arduino Uno.” Arduino Project Hub, https://create.arduino.cc/projecthub/pibots555/how-to-connect-dht11-sensor-with-arduino-uno-f4d239.  
-[^4]:Team, The Arduino. “What Is Arduino?: Arduino Documentation.” Arduino Documentation | Arduino Documentation, https://docs.arduino.cc/learn/starting-guide/whats-arduino.  
-[^5]:Tino. “Tino/PyFirmata: Python Interface for the Firmata (Http://Firmata.org/) Protocol. It Is Compliant with Firmata 2.1. Any Help with Updating to 2.2 Is Welcome. the Capability Query Is Implemented, but the Pin State Query Feature Not Yet.” GitHub, https://github.com/tino/pyFirmata. 
-[^6]:Python Geeks. “Advantages of Python: Disadvantages of 
+1. User Authentication System
+- The application includes a signup and login system that allows shop staff to securely access the system using a username and password. 
+  (Prevents unauthorized access)
+- Bulk Order Management System
+  The application allows users to place bulk orders (minimum 10 drinks) by selecting a drink and specifying the quantity. (Simplifies the - 
+  ordering process for customers ordering in large quantities)
+- Drink Customization Feature
+  Customers can customize their drinks by choosing sweetness levels and ice levels before adding them to their order. (Enhances customer 
+  experience by allowing personalization)
+- Cart Storage and Display
+  The cart stores selected items and displays them in a structured list, showing drink name, customizations, quantity, and total price. 
+  (Provides a clear overview of the order before checkout)
+- Visual Display of Total Drinks
+  The application displays the total number of drinks in a clear and visible section of the cart. (Provides an easy way for users to review 
+  their order)
+- User-Friendly Interface
+  The application features a clean and easy-to-navigate design with a blue-themed, soft color palette. (Ensures a smooth and enjoyable user 
+  experience) 
+
+## Criteria B: Design
+
+## ER Diagram:
+<img width="655" alt="Screenshot 2025-03-12 at 8 06 05" src="https://github.com/user-attachments/assets/040225c0-3dfb-4e8f-ad02-92c33e935575" />
+#The ER diagram for Moonlight Bubbles includes four main tables: users, orders, order_items, and drinks. Primary key of each table is shown with an underline. A one-to-many relationship exists between users and orders, as each user can place multiple orders. The orders table links to order_items in a one-to-many relationship since each order can contain multiple drinks. The order_items table records drink details and connects to the drinks table in a many-to-one relationship, as multiple orders can include the same drink. This structure ensures efficient order tracking and management.
+
+## UML Diagram:
+
+
