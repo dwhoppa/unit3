@@ -4,7 +4,7 @@
 
 ## Problem definition
 
-The client, A.N., is the owner of Moonlight Bubbles, a popular Taiwanese drink shop in Japan. The shop, known for its boba milk tea, lemon black tea with jelly, mango green tea and matcha milk tea has gained a strong reputation. However, its rural location near Nagano, with the main factory in Suwa, makes it difficult for customers in major cities like Tokyo, Osaka, and Kyoto to access the drinks. Currently, there is no efficient way for customers outside the local area to place orders. Due to high demand, many customers are interested in bulk orders (over 10 cups), but the lack of a structured ordering system limits accessibility and sales growth. Without a dedicated platform, customers must visit the physical store or rely on indirect ordering methods, leading to inconvenience, lost sales opportunities, and limited market expansion. 
+The client, A.N., is the owner of Moonlight Bubbles, a popular Taiwanese drink shop in Japan. The shop, known for its classic boba milk tea, lemon black tea with jelly, mango green tea and matcha milk tea has gained a strong reputation. However, its rural location near Nagano, with the main factory in Suwa, makes it difficult for customers in major cities like Tokyo, Osaka, and Kyoto to access the drinks. Currently, there is no efficient way for customers outside the local area to place orders. Due to high demand, many customers are interested in bulk orders (over 10 cups), but the lack of a structured ordering system limits accessibility and sales growth. Without a dedicated platform, customers must visit the physical store or rely on indirect ordering methods, leading to inconvenience, lost sales opportunities, and limited market expansion. 
 
 ![giphy](https://github.com/user-attachments/assets/c5bbc0d3-5584-4584-ae2c-239722b97d51)
 
@@ -12,7 +12,7 @@ The client, A.N., is the owner of Moonlight Bubbles, a popular Taiwanese drink s
 ## Proposed Solution
 
 I propose a solution for the problem by developing an application for Moonlight Bubbles, a store that aims to provide a bulk ordering platform, allowing customers in Tokyo, Osaka, and Kyoto to place large orders for delivery. The platform will feature a blue-themed, soft color design to match the brand’s aesthetic and provide a simple, user-friendly ordering process:
-Drink Selection – Customers can choose from the three available drinks (boba milk tea, lemon black tea with jelly, passionfruit tea with nata de coco).
+Drink Selection – Customers can choose from the four available drinks (classic boba milk tea, lemon black tea with jelly, mango green tea and matcha milk tea).
  - Customization Options – Users can adjust sweetness levels and ice levels to their preferences.
  - Bulk Ordering – Orders must be at least 10 cups, ensuring efficiency in delivery logistics.
  - Cart & Checkout System – Customers can add items to their cart and complete their purchase seamlessly.
