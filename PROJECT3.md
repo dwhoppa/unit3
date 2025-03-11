@@ -186,18 +186,6 @@ class SignupScreen(Screen):
 
 ```
 
-
-```.C++
-void setup() {
-  Serial.begin(9600);
-  while (!Serial) delay(10); // Wait for Serial monitor to be ready
-  // Serial.println("DHTxx start!");
-
-  dht.begin();
-  startTime = millis();
-}
-```
-
 **Success Criterion 2: Bulk Order Management System. The application allows users to place bulk orders by selecting a drink and specifying the quantity (minimum 10 drinks).**
 
 **Code Implementation: To implement bulk ordering, I need to validate the quantity input and allow the customer to specify the drink type and the number of drinks to order. If the quantity is below the minimum, the system should reject the order and prompt the user.**
@@ -217,7 +205,424 @@ def display_cart(self):
 
 ```
 
+**Success Criterion 3: Drink Customization Feature. Success Criterion: Customers can customize their drinks by choosing sweetness levels and ice levels before adding them to the order.**
+
+**Code Implementation: Drink customization involves allowing the customer to select various preferences (like sweetness or ice level) before the item is added to the order. The code needs to capture these preferences and store them with the drink in the cart.**
+
+**Example Code:
+File: bubble_tea.py**
+
+```.C++
+class MenuScreen(Screen):
+   def __init__(self, **kwargs):
+       super().__init__(**kwargs)
+       self.drink_name = None
 
 
+   def show_drink_options(self, drink_name):
+       self.drink_name = drink_name
+       self.popup = Popup(title=f"Customize {drink_name}", size_hint=(0.8, 0.6))
+       content = GridLayout(rows=5, spacing=10, padding=10)
 
 
+       self.sweetness = Spinner(text='Sweetness Level', values=('0%', '25%', '50%', '75%', '100%'))
+       self.ice = Spinner(text='Ice Level', values=('0%', '25%', '50%', '75%', '100%'))
+       self.quantity = TextInput(hint_text='Quantity', input_type='number')
+       price_label = Label(text="Price: 600¥", size_hint_y=None, height=30)
+       add_to_cart_btn = Button(text='Add to Cart', size_hint_y=None, height=50)
+       add_to_cart_btn.bind(on_press=self.add_to_cart)
+
+```
+
+**Success Criterion 4: Cart Storage and Display. The cart should store selected items and display them in a structured list, showing drink name, customizations, quantity, and total price.**
+
+**Code Implementation: My cart management system should be capable of storing items with all relevant details like the drink name, customization (sweetness, ice level), quantity, and the total price for each item. The cart should then be displayed in a structured format for the user to review.**
+
+**Example Code:
+File: bubble_tea.py**
+
+```.C++
+class CartScreen(Screen):
+   def on_enter(self):
+       self.layout = BoxLayout(orientation='vertical', padding=40, spacing=20)
+       self.add_widget(self.layout)
+
+
+       self.display_cart()
+
+
+   def display_cart(self):
+       self.layout.clear_widgets()
+
+
+       min_drinks_label = Label(text="Minimum 10 drinks required", font_size=22, color=(1, 0, 0, 1), size_hint_y=None, height=40)
+       self.layout.add_widget(min_drinks_label)
+
+
+       total_price = 0
+
+
+       cart_item_data = []
+       for item in cart:
+           cart_item_text = f"{item['drink']}  |  Sweetness: {item['sweetness']}  |  Ice: {item['ice']}  |  Qty: {item['quantity']}  |  Price: {item['price']}¥"
+           cart_item_data.append({'text': cart_item_text, 'font_size': 18})
+           total_price += item['price']
+
+
+       self.ids.cart_items.data = cart_item_data
+
+
+       final_price_label = Label(text=f"Final Price: {total_price}¥", font_size=24, bold=True, color=(0, 0, 0, 1))
+       self.layout.add_widget(final_price_label)
+
+
+       checkout_btn = Button(text='Checkout', size_hint_y=None, height=50)
+       checkout_btn.bind(on_press=self.checkout)
+       self.layout.add_widget(checkout_btn)
+
+
+       back_to_menu_btn = Button(text='Back to Menu', size_hint_y=None, height=50)
+       back_to_menu_btn.bind(on_press=self.back_to_menu)
+       self.layout.add_widget(back_to_menu_btn)
+
+
+   def checkout(self, instance):
+       if len(cart) >= 10:
+           self.show_popup('Order Placed', 'Thank you for your order!')
+           cart.clear()
+           self.manager.current = 'menu'
+       else:
+           self.show_popup('Error', 'Minimum 10 drinks required to checkout.')
+
+
+   def back_to_menu(self, instance):
+       self.manager.current = 'menu'
+
+
+   def show_popup(self, title, message):
+       popup = Popup(title=title, size_hint=(0.8, 0.4))
+       popup.content = Label(text=message)
+       popup.open()
+
+```
+**Success Criterion 5: Visual Display of Total Drinks. The application should display the total number of drinks in a clear and visible section of the cart.**
+
+**Code Implementation: The application needs to provide an easy way to track how many drinks are in the cart. This requires a function that sums up the quantities of all items in the cart.**
+
+**Example Code:
+File: bubble_tea.py**
+
+```.C++
+total_price = 0
+
+
+cart_item_data = []
+for item in cart:
+   cart_item_text = f"{item['drink']}  |  Sweetness: {item['sweetness']}  |  Ice: {item['ice']}  |  Qty: {item['quantity']}  |  Price: {item['price']}¥"
+   cart_item_data.append({'text': cart_item_text, 'font_size': 18})
+   total_price += item['price']
+
+
+self.ids.cart_items.data = cart_item_data
+
+
+final_price_label = Label(text=f"Final Price: {total_price}¥", font_size=24, bold=True, color=(0, 0, 0, 1))
+self.layout.add_widget(final_price_label)
+
+```
+
+**Success Criterion 6: User-Friendly Interface. Success Criterion: The application features are clean and easy-to-navigate design with a blue-themed, soft color palette.**
+
+**Code Implementation: I applied a user-friendly design to ensure a smooth and visually appealing experience. A blue-themed color palette with clear visual elements will help users navigate the app effortlessly.**
+
+**Example Code:
+File: bubble_tea.py**
+
+```.C++
+
+<LoginScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1  # White background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Moonlight Bubbles Login'
+            font_size: 45
+            color: 0.117, 0.565, 1, 1  # Black text
+            size_hint_y: None
+            height: 50
+
+        TextInput:
+            id: username
+            hint_text: 'Username'
+            multiline: False
+            background_color: 0, 0, 0, 0  # Transparent background
+            foreground_color: 0, 0, 0, 1  # Black text
+            size_hint_y: None
+            height: 40
+            canvas.after:
+                Color:
+                    rgba: input_line_color
+                Line:
+                    points: self.x, self.y, self.x + self.width, self.y
+                    width: 1
+
+        TextInput:
+            id: password
+            hint_text: 'Password'
+            password: True
+            multiline: False
+            background_color: 0, 0, 0, 0  # Transparent background
+            foreground_color: 0, 0, 0, 1  # Black text
+            size_hint_y: None
+            height: 40
+            canvas.after:
+                Color:
+                    rgba: input_line_color
+                Line:
+                    points: self.x, self.y, self.x + self.width, self.y
+                    width: 1
+
+        Button:
+            text: 'Login'
+            background_normal: ''  # Remove default button background
+            background_color: 0.529, 0.808, 0.980, 1  # Light grey background
+            size_hint_y: None
+            height: 50
+            on_press: root.login()
+
+        Button:
+            text: 'Sign Up'
+            background_normal: ''  # Remove default button background
+            background_color: 0.529, 0.808, 0.980, 1  # Light grey background
+            size_hint_y: None
+            height: 50
+            on_press: root.manager.current = 'signup'
+
+<SignupScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1  # White background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Moonlight Bubbles Sign Up'
+            font_size: 28
+            color: 0, 0, 0, 1  # Black text
+            size_hint_y: None
+            height: 50
+
+        TextInput:
+            id: username
+            hint_text: 'Username'
+            multiline: False
+            background_color: 0, 0, 0, 0  # Transparent background
+            foreground_color: 0, 0, 0, 1  # Black text
+            size_hint_y: None
+            height: 40
+            canvas.after:
+                Color:
+                    rgba: input_line_color
+                Line:
+                    points: self.x, self.y, self.x + self.width, self.y
+                    width: 1
+
+        TextInput:
+            id: password
+            hint_text: 'Password'
+            password: True
+            multiline: False
+            background_color: 0, 0, 0, 0  # Transparent background
+            foreground_color: 0, 0, 0, 1  # Black text
+            size_hint_y: None
+            height: 40
+            canvas.after:
+                Color:
+                    rgba: input_line_color
+                Line:
+                    points: self.x, self.y, self.x + self.width, self.y
+                    width: 1
+
+        Button:
+            text: 'Sign Up'
+            background_normal: ''  # Remove default button background
+            background_color: 0.529, 0.808, 0.980, 1  # Light grey background
+            size_hint_y: None
+            height: 50
+            on_press: root.signup()
+
+        Button:
+            text: 'Back to Login'
+            background_normal: ''  # Remove default button background
+            background_color: 0.529, 0.808, 0.980, 1  # Light grey background
+            size_hint_y: None
+            height: 50
+            on_press: root.manager.current = 'login'
+
+<MenuScreen>:
+    GridLayout:
+        cols: 1  # One column for the overall structure
+        rows: 3  # 3 rows in total (2 for the drink images, 1 for the Go to Cart button)
+        spacing: 10  # Space between buttons
+        padding: 10  # Padding around the grid
+        size_hint: 1, 1  # Fill the entire screen
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1  # White background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+        # Grid for drink images (2 rows, 2 columns)
+        GridLayout:
+            cols: 2  # 2 columns for the drink images
+            rows: 2  # 2 rows for the drink images
+            size_hint: 1, None
+            height: self.parent.height * 0.94  # Use 70% of the height for the drink images
+            padding: 10
+            spacing: 10
+
+            # Classic Milk Tea Button
+            Button:
+                background_normal: ''
+                background_color: (0.529, 0.808, 0.980, 1)
+                on_press: root.show_drink_options('Classic Milk Tea')
+                size_hint: 1, 1  # Fill the grid cell
+                Image:
+                    source: 'classic_milk_tea1.jpg'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos: self.parent.pos
+                    size: self.parent.size
+
+            # Matcha Milk Tea Button
+            Button:
+                background_normal: ''
+                background_color: (0.529, 0.808, 0.980, 1)
+                on_press: root.show_drink_options('Matcha Milk Tea')
+                size_hint: 1, 1  # Fill the grid cell
+                Image:
+                    source: 'matcha_milk_tea.png'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos: self.parent.pos
+                    size: self.parent.size
+
+            # Mango Green Tea Button
+            Button:
+                background_normal: ''
+                background_color: (0.529, 0.808, 0.980, 1)
+                on_press: root.show_drink_options('Mango Green Tea')
+                size_hint: 1, 1  # Fill the grid cell
+                Image:
+                    source: 'mango_green_tea.png'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos: self.parent.pos
+                    size: self.parent.size
+
+            # Lemon Black Tea Button
+            Button:
+                background_normal: ''
+                background_color: (0.529, 0.808, 0.980, 1)
+                on_press: root.show_drink_options('Lemon Black Tea')
+                size_hint: 1, 1  # Fill the grid cell
+                Image:
+                    source: 'lemon_black_tea.png'
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos: self.parent.pos
+                    size: self.parent.size
+
+        # Go to Cart Button (at the very bottom)
+        Button:
+            text: "Go to Cart"
+            size_hint_y: None
+            size_hint_x: 1  # Full width
+            height: 50
+            on_press: root.go_to_cart()
+            background_normal: ''  # Remove default button background
+            background_color: 0.529, 0.808, 0.980, 1
+
+
+<CartScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+        background_color: 0.529, 0.808, 0.980, 1
+        canvas.before:
+            Color:
+                rgb: 1, 1, 1  # White background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # Minimum drinks required label
+        Label:
+            text: "Minimum 10 drinks required"
+            font_size: 22
+            color: (0, 0, 0, 1)
+            size_hint_y: None
+            height: 40
+
+        # Scrollable area for cart items
+        ScrollView:
+            RecycleView:
+                id: cart_items
+                viewclass: 'Label'  # Make sure items are displayed as Labels
+                RecycleBoxLayout:
+                    default_size: None, 40
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+                    orientation: 'vertical'
+
+        # Final Price Label
+        Label:
+            id: final_price
+            text: "Final Price: 0¥"
+            font_size: 24
+            bold: True
+            color: (0, 0, 0, 1)
+            size_hint_y: None
+            height: 50
+
+        # Checkout Button
+        Button:
+            text: 'Checkout'
+            size_hint_y: None
+            height: 50
+            background_normal: ''  # Remove default button background
+            background_color: 0.529, 0.808, 0.980, 1
+            on_press: root.checkout()
+
+        # Go Back to Menu Button
+        Button:
+            text: 'Back to Menu'
+            size_hint_y: None
+            height: 50
+            background_normal: ''  # Remove default button background
+            background_color: 0.529, 0.808, 0.980, 1
+            on_press: root.back_to_menu()
+
+
+```
