@@ -60,6 +60,28 @@ The UML diagram of the Moonlight Bubbles GUI application consists of four main c
 
 This is the wireframe of the GUI application. The screen flow follows the arrows in the figure.
 
+## Records of Tasks:
+| Task No | Planned Action              | Planned Outcome                                                                                                                                                  | Time estimate (min) | Target completion date | Criteria |
+|---------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|------------------------|----------|
+| 1       | Consultation with my client | I interviewed my client and defined the problem that they had.                                                                                                 | 30                  | Feb 12                 | A        |
+| 2       | Planning the solution       | Defined the problem more clearly and proposed a solution. Got it approved and made a success criteria.                                                         | 40                  | Feb 14                 | A        |
+| 3       | Justification of tools      | I searched for the advantages and disadvantages of the tools I can use and chose the best ones for solving the defined problem.                                | 30                  | Feb 20                 | A        |
+| 4       | ER diagram                  | I created an ER diagram to determine what data I needed to collect.                                                      | 30                  | Feb 22                 | B        |
+| 5       | UML diagram                 | I created a UML diagram of a relational database to visualize the relationship of each table.                                                                  | 30                  | Feb 24                 | B        |
+| 6       | Sketch                      | I created a sketch of a GUI application to offer it to my client.                                                                                              | 60                  | Feb 26                 | B        |
+| 7       | Home Screen (SignUp/Login)  | I made a welcoming Home Screen with a signup button and a login button, allowing users to move between the pages by clicking.                                 | 20                  | Feb 28                 | C        |
+| 8       | Sign Up Function            | I created a signup function that collects a username and password from a user and adds the user into the database.                                            | 40                  | Mar 1                  | C        |
+| 9       | Login Function              | I created a login function that validates the username and password entered.                                                                                   | 30                  | Mar 1                  | C        |
+| 10      | Menu Screen                 | I created a menu screen with 4 items from which the customer can choose.                                                                                       | 40                  | Mar 2                  | C        |
+| 11      | Specific Details            | I created a function that asks the user specific details about their order, such as ice level, sweetness level, and quantity.                                | 120                 | Mar 2                  | C        |
+| 12      | Go to Cart Button           | I created a "Go to Cart" button that leads the user from the menu page to the cart.                                                                           | 120                 | Mar 2                  | C        |
+| 13      | Back to Menu Button         | I made a "Back to Menu" button that allows the user to return from the cart to the menu to choose more items if needed.                                      | 15                  | Mar 4                  | C        |
+| 14      | Check Out Button            | I created a "Check Out" button that allows the customer to complete their order.                                                                             | 40                  | Mar 4                  | C        |
+| 15      | Test Plan                   | I made a test plan table.                                                                                                                                     | 70                  | Mar 6                  | C        |
+| 16      | Last Details                | I edited the KV file to improve the UI by changing colors, repositioning components, and adding images.                                                      | 40                  | Mar 9                  | C        |
+| 17      | Final Product               | I made a video to introduce my development.                                                                                                                   | 40                  | Mar 10                 | C        |
+
+
 
 
 
