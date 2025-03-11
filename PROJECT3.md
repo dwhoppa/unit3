@@ -100,7 +100,7 @@ This is the wireframe of the GUI application. The screen flow follows the arrows
 
 ## Criteria A: Developement
 
-**Success Criterion: The application should allow users to securely access the system using a username and password.**
+**Success Criterion 1: 1. User Authentication System. The application should allow users to securely access the system using a username and password.**
 
 **Code Implementation: The authentication system typically consists of user login and signup mechanisms that ensure only authorized users can access the system.**
 
@@ -185,7 +185,7 @@ class SignupScreen(Screen):
        popup.open()
 
 ```
-**Code Partial Overview: In the first line of the code, we must include the DHT.h library, in this case we will be using the Adafruit DHT Sensor Library. This library is essential for the program as it makes the arduino to identify the and send the commands to the DHT sensors connected to it. In the lines 3 and 4, we defined the pin the sensor is connected to and the type of sensor it is being used in this case scenario. The sensors being used for our project are the DHT11 type, and they are connected to pin 2. The pin and sensor can be seen in the fig.2 located in the Criteria B. On the line 7, the sensor's identity is created so later on the sensor can be called on other programs. Finally, on the line 8, the variable "startTime" is declared and assigned to the type Unsigned long, which permits the variable to store a large amount of non-negative integer values. The word static ensures that the variable retainsits value between function calls. This last line is used to store the timestamp of the data collect, to be exact the start of the collection.**
+
 
 ```.C++
 void setup() {
@@ -198,7 +198,25 @@ void setup() {
 }
 ```
 
-**Code Partial Overview: Next, in this section
+**Success Criterion 2: Bulk Order Management System. The application allows users to place bulk orders by selecting a drink and specifying the quantity (minimum 10 drinks).**
+
+**Code Implementation: To implement bulk ordering, I need to validate the quantity input and allow the customer to specify the drink type and the number of drinks to order. If the quantity is below the minimum, the system should reject the order and prompt the user.**
+
+**Example Code:
+File: bubble_tea.py**
+
+```.C++
+Example Code:
+File: bubble_tea.py
+def display_cart(self):
+   self.layout.clear_widgets()
+
+
+   min_drinks_label = Label(text="Minimum 10 drinks required", font_size=22, color=(1, 0, 0, 1), size_hint_y=None, height=40)
+   self.layout.add_widget(min_drinks_label)
+
+```
+
 
 
 
