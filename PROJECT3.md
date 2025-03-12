@@ -3,6 +3,24 @@
 
 ## Criteria A: Planning
 
+## Evidence of client consultation (the interview)
+Alena: Tell me the main details about your business.
+
+A.N.: My business is called “moonlight bubbles”, we’re a Taiwanese drink shop located around Nagano, with the main factory in Suwa, on a mountain. 
+
+Alena: What are the most popular items in your shop?
+
+A.N.: our most popular drink is boba milk tea, but we also sell lemon black tea with jelly, and mango tea. 
+
+Alena: Why do you want an app for your shop?
+
+A.N: Our shops are famous in Japan, but since it’s located in a rural area, people from the major cities cannot access it. Hence, I would like to have a platform where people can order in huge quantities (over 10 cups), and it would be delivered to their homes. 
+
+Alena: Are there any preferences regarding the design of an app?
+
+A.N: [blue themed, soft colors] Login page → home page: 4 drinks → how sweet/how cold → select quantities → add to cart -> return to home screen OR close the app
+
+
 ## Problem definition
 
 The client, A.N., is the owner of Moonlight Bubbles, a popular Taiwanese drink shop in Japan. The shop, known for its classic boba milk tea, lemon black tea with jelly, mango green tea and matcha milk tea has gained a strong reputation. However, its rural location near Nagano, with the main factory in Suwa, makes it difficult for customers in major cities like Tokyo, Osaka, and Kyoto to access the drinks. Currently, there is no efficient way for customers outside the local area to place orders. Due to high demand, many customers are interested in bulk orders (over 10 cups), but the lack of a structured ordering system limits accessibility and sales growth. Without a dedicated platform, customers must visit the physical store or rely on indirect ordering methods, leading to inconvenience, lost sales opportunities, and limited market expansion. 
